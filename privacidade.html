@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade · Minha Notinha</title>
+<meta name="description" content="Como o aplicativo Minha Notinha trata as informações de quem o usa: o que fica no aparelho, o que os componentes do Google recebem e como exercer seus direitos pela LGPD.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0B7A5A">
+<link rel="canonical" href="https://www.minhanotinha.com.br/privacidade">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B7A5A'/%3E%3Cpath d='M10 9h12M10 14h12M10 19h8' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #F1F5F3;
+    --surface: #FFFFFF;
+    --text: #11211B;
+    --muted: #5C6B64;
+    --line: #DCE4E0;
+    --accent: #0B7A5A;
+    --accent-soft: #E7F4EF;
+    --warn-soft: #FFF6E0;
+    --warn-line: #E8D49A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0D1613;
+      --surface: #14201B;
+      --text: #E2EBE7;
+      --muted: #9AABA3;
+      --line: #263630;
+      --accent: #45C79A;
+      --accent-soft: #15302A;
+      --warn-soft: #2B2412;
+      --warn-line: #5A4A1E;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+
+  header { margin-bottom: 28px; }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 15px;
+    letter-spacing: .01em;
+  }
+  .brand svg { width: 28px; height: 28px; flex: none; }
+
+  h1 {
+    font-size: clamp(28px, 6vw, 36px);
+    line-height: 1.2;
+    margin: 14px 0 6px;
+    letter-spacing: -.01em;
+  }
+
+  .updated { color: var(--muted); font-size: 15px; margin: 0; }
+
+  h2 {
+    font-size: 22px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    scroll-margin-top: 16px;
+  }
+  h3 { font-size: 18px; margin: 24px 0 8px; }
+
+  p, ul, ol { margin: 0 0 14px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  li:last-child { margin-bottom: 0; }
+
+  a { color: var(--accent); text-underline-offset: 2px; overflow-wrap: anywhere; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  code {
+    font: 0.9em/1 ui-monospace, "Cascadia Mono", Consolas, monospace;
+    background: var(--accent-soft);
+    padding: 2px 5px;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+  }
+
+  section, nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 20px 8px;
+    margin-bottom: 16px;
+  }
+
+  .summary {
+    background: var(--accent-soft);
+    border-color: transparent;
+  }
+
+  .toc { padding-bottom: 18px; }
+  .toc h2 { font-size: 17px; margin-bottom: 10px; color: var(--muted); font-weight: 600; }
+  .toc ol {
+    margin: 0;
+    padding-left: 22px;
+    columns: 2 220px;
+    column-gap: 28px;
+  }
+  .toc li { break-inside: avoid; }
+
+  .note {
+    background: var(--warn-soft);
+    border: 1px solid var(--warn-line);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 0 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 15.5px; line-height: 1.5; }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  tr:last-child th, tr:last-child td { border-bottom: 0; }
+  thead th { background: var(--accent-soft); font-weight: 600; }
+  tbody th { font-weight: 600; white-space: nowrap; }
+
+  footer {
+    color: var(--muted);
+    font-size: 15px;
+    text-align: center;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    section, nav.toc { padding: 18px 16px 6px; border-radius: 12px; }
+    nav.toc { padding-bottom: 16px; }
+    tbody th { white-space: normal; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    section { border: 0; padding: 0; }
+    .toc { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0B7A5A"/><path d="M10 9h12M10 14h12M10 19h8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+    Minha Notinha
+  </div>
+  <h1>Política de Privacidade</h1>
+  <p class="updated">Última atualização: 9 de novembro de 2026</p>
+</header>
+
+<main>
+
+<p>Esta política descreve como o aplicativo <strong>Minha Notinha</strong> trata as informações de quem o usa. Cada afirmação aqui corresponde ao que o aplicativo faz de fato, e as exceções estão declaradas em vez de omitidas.</p>
+
+<section class="summary" aria-labelledby="resumo">
+  <h2 id="resumo">Resumo</h2>
+  <ul>
+    <li>O aplicativo <strong>não tem servidor, não tem conta de usuário e não envia suas compras nem suas listas para lugar nenhum</strong>. Tudo isso fica gravado no seu próprio aparelho.</li>
+    <li>O aplicativo é <strong>gratuito e exibe anúncios</strong>: um banner no rodapé da tela inicial, servido pelo Google AdMob. Para isso, o componente de anúncios do Google recebe o identificador de publicidade do aparelho, o endereço IP e informações técnicas e de interação (<a href="#s5">seção 5</a>).</li>
+    <li>A leitura do QR Code usa um componente do Google, o ML Kit, que envia ao Google informações técnicas de diagnóstico (<a href="#s4">seção 4</a>).</li>
+    <li>Fora isso, nada sai do aparelho sem uma ação sua.</li>
+  </ul>
+</section>
+
+<nav class="toc" aria-labelledby="indice">
+  <h2 id="indice">Nesta página</h2>
+  <ol>
+    <li><a href="#s1">Quem é o responsável pelos dados</a></li>
+    <li><a href="#s2">Que informações o aplicativo guarda</a></li>
+    <li><a href="#s3">Como as informações são usadas</a></li>
+    <li><a href="#s4">Uso da câmera</a></li>
+    <li><a href="#s5">Anúncios (Google AdMob)</a></li>
+    <li><a href="#s6">Consulta ao portal da SEFAZ</a></li>
+    <li><a href="#s7">Backup e troca de aparelho</a></li>
+    <li><a href="#s8">Compartilhamento de informações</a></li>
+    <li><a href="#s9">Por quanto tempo os dados ficam guardados</a></li>
+    <li><a href="#s10">Seus direitos (LGPD)</a></li>
+    <li><a href="#s11">Crianças</a></li>
+    <li><a href="#s12">Alterações nesta política</a></li>
+    <li><a href="#s13">Onde esta política está publicada</a></li>
+  </ol>
+</nav>
+
+<section aria-labelledby="s1">
+  <h2 id="s1">1. Quem é o responsável pelos dados</h2>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr><th scope="row">Controlador</th><td>Junior Carvalho, desenvolvedor independente (pessoa física)</td></tr>
+        <tr><th scope="row">Contato</th><td><a href="mailto:remixxdev@gmail.com">remixxdev@gmail.com</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>O aplicativo é publicado por uma pessoa física, sem empresa constituída; por isso não há CNPJ nem endereço comercial a informar. O e-mail acima é o canal para qualquer assunto de privacidade, inclusive o exercício dos direitos da <a href="#s10">seção 10</a>.</p>
+</section>
+
+<section aria-labelledby="s2">
+  <h2 id="s2">2. Que informações o aplicativo guarda</h2>
+  <p>Todas as informações abaixo ficam <strong>exclusivamente no armazenamento do seu aparelho</strong>. Não existe servidor deste aplicativo, e nenhuma delas é enviada para o desenvolvedor.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th scope="col">Informação</th><th scope="col">De onde vem</th><th scope="col">Onde fica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Suas listas de compras (nomes de produto e quantidades)</td><td>Digitadas por você</td><td>No aparelho</td></tr>
+        <tr><td>Cupons fiscais lidos (nome e endereço do estabelecimento, itens, valores, formas de pagamento, chave de acesso)</td><td>Da página oficial da SEFAZ, ao ler o QR Code do seu cupom</td><td>No aparelho</td></tr>
+        <tr><td>Histórico de preços por produto</td><td>Calculado a partir dos cupons já lidos</td><td>No aparelho</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>O aplicativo <strong>não pede nem guarda</strong> nome, e-mail, telefone, CPF, localização, lista de contatos ou histórico de navegação. Não há login, cadastro ou conta.</p>
+  <p>Os componentes do Google usados para os anúncios e para a leitura do QR Code enviam informações técnicas ao Google por conta própria; as seções <a href="#s4">4</a> e <a href="#s5">5</a> explicam quais. O aplicativo não entrega a esses componentes nenhum dos dados da tabela acima.</p>
+  <p>Vale um detalhe sobre o CPF, porque ele aparece na própria nota: quando a compra é feita “com CPF”, a página da SEFAZ mostra o seu número num painel chamado “Consumidor”. <strong>O aplicativo não lê esse painel</strong>, nem o CPF, nem o nome. Esses dados ficam apenas na página da SEFAZ, que você vê na tela durante a consulta, e não são gravados no aparelho nem incluídos no backup.</p>
+  <p>O <strong>CNPJ do estabelecimento</strong> também não é guardado. Ele é lido da página no instante da consulta, usado ali mesmo para calcular um código que diz “estas duas compras foram na mesma loja”, e descartado em seguida. O número em si não é exibido em tela nenhuma, não fica gravado no aparelho e não entra no backup. É por isso que a lista de estabelecimentos se busca por nome, e não por CNPJ.</p>
+  <p>Uma ressalva honesta sobre esse código: ele não é um disfarce à prova de tudo. Quem tiver acesso ao banco de dados do aplicativo consegue, com esforço, chegar de volta ao CNPJ, até porque a razão social da loja está gravada ao lado dele. O que o código garante é que o número não fique escrito no aparelho nem viaje no arquivo de backup.</p>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3">3. Como as informações são usadas</h2>
+  <p>Suas listas e seus cupons são usados somente para as funções do próprio aplicativo, no seu aparelho: montar e marcar listas de compras, exibir o cupom lido, agrupar compras por estabelecimento e comparar preços de produtos ao longo do tempo.</p>
+  <p>Nada disso é usado para publicidade, criação de perfil ou análise de comportamento, nem vendido a terceiros. O componente de anúncios do Google <strong>não recebe</strong> suas listas, seus cupons nem as imagens da câmera.</p>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4">4. Uso da câmera</h2>
+  <p>A câmera é usada <strong>apenas</strong> para ler o QR Code impresso no seu cupom fiscal, no momento em que você abre a tela de leitura.</p>
+  <ul>
+    <li>As imagens da câmera são processadas <strong>em tempo real</strong> e <strong>não são gravadas</strong> pelo aplicativo, nem enviadas para lugar nenhum.</li>
+    <li>A permissão de câmera é <strong>opcional</strong>: se você recusar, o aplicativo continua funcionando, e dá para colar o endereço do QR Code à mão.</li>
+  </ul>
+  <h3>Componente do Google usado na leitura</h3>
+  <p>A leitura do código é feita pelo <strong>ML Kit, do Google</strong>, embarcado no aplicativo. Esse componente envia ao Google informações técnicas sobre o próprio funcionamento, usadas para diagnóstico e estatísticas de uso:</p>
+  <ul>
+    <li>fabricante e modelo do aparelho e versão do Android;</li>
+    <li>nome e versão do aplicativo;</li>
+    <li>um identificador da instalação que, segundo o Google, não se destina a identificar você nem o aparelho;</li>
+    <li>desempenho da leitura (por exemplo, o tempo de resposta) e códigos de erro.</li>
+  </ul>
+  <p>O ML Kit <strong>não envia</strong> as imagens da câmera nem o conteúdo do QR Code lido. O envio é cifrado, e o Google informa que não repassa esses dados a terceiros. O tratamento segue a política de privacidade do Google: <a href="https://policies.google.com/privacy" rel="noopener">https://policies.google.com/privacy</a></p>
+</section>
+
+<section aria-labelledby="s5">
+  <h2 id="s5">5. Anúncios (Google AdMob)</h2>
+  <p>O aplicativo é gratuito e se mantém com anúncios: <strong>um banner</strong> no rodapé da tela inicial, servido pelo <strong>Google AdMob</strong>. Não há anúncio em tela cheia, nem na abertura do aplicativo, nem durante a leitura do cupom.</p>
+  <h3>O que o Google recebe</h3>
+  <p>Para exibir e medir esse banner, o componente do Google embarcado no aplicativo envia ao Google, automaticamente:</p>
+  <ul>
+    <li>o <strong>identificador de publicidade</strong> do Android (o “ID de publicidade”) e o identificador do conjunto de apps;</li>
+    <li>o <strong>endereço IP</strong> da conexão, que permite estimar a região aproximada do aparelho (não a localização exata);</li>
+    <li><strong>interações</strong>: abertura do aplicativo, se o anúncio foi exibido e se foi tocado;</li>
+    <li><strong>informações técnicas e de diagnóstico</strong>: modelo do aparelho, versão do Android, idioma, tamanho da tela, tempo de abertura do aplicativo, travamentos e consumo de energia.</li>
+  </ul>
+  <p>O Google usa essas informações para <strong>exibir anúncios</strong>, inclusive anúncios personalizados com base no identificador de publicidade, para <strong>medir</strong> o desempenho dos anúncios e para <strong>prevenir fraudes</strong>. O envio é cifrado.</p>
+  <p>O banner é exibido dentro de um componente de navegador, e o Google pode gravar nele cookies ou dados semelhantes para medir e controlar a exibição dos anúncios. O aplicativo apaga os cookies, o armazenamento e o cache desse navegador interno ao fim de cada consulta à SEFAZ (<a href="#s6">seção 6</a>).</p>
+  <p>O componente <strong>não recebe</strong> suas listas, seus cupons, o conteúdo das páginas da SEFAZ nem imagens da câmera: o aplicativo não entrega nada disso a ele, e ele não tem acesso ao banco de dados do aplicativo. O aplicativo em si <strong>não guarda</strong> o identificador de publicidade e não o associa às suas compras.</p>
+  <p>O tratamento dessas informações pelo Google é regido pela política de privacidade do Google (<a href="https://policies.google.com/privacy" rel="noopener">https://policies.google.com/privacy</a>) e pela página sobre como o Google usa dados de apps que usam seus serviços (<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">https://policies.google.com/technologies/partner-sites</a>).</p>
+  <h3>O que você controla</h3>
+  <ul>
+    <li>No Android, em <strong>Configurações → Google → Anúncios</strong> (ou <strong>Privacidade → Anúncios</strong>, conforme a versão), você pode <strong>excluir o identificador de publicidade</strong> ou <strong>redefini-lo</strong>. Sem ele, os anúncios continuam aparecendo, mas deixam de ser personalizados.</li>
+    <li>Em <a href="https://myadcenter.google.com" rel="noopener">https://myadcenter.google.com</a> você pode ver e ajustar como o Google personaliza os anúncios que mostra a você.</li>
+    <li>O aplicativo é distribuído <strong>somente no Brasil</strong>. Por isso ele não exibe uma tela de consentimento antes do banner; os controles acima valem a qualquer momento.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="s6">
+  <h2 id="s6">6. Consulta ao portal da SEFAZ</h2>
+  <p>Ao ler um cupom, o aplicativo abre <strong>dentro dele</strong> a página oficial da SEFAZ do estado que emitiu a nota (Minas Gerais, Goiás, São Paulo, Rio de Janeiro, Santa Catarina, Bahia, Pernambuco, Rondônia, Mato Grosso do Sul, Distrito Federal, Rio Grande do Sul, Piauí, Espírito Santo, Maranhão, Paraná, Amazonas, Ceará, Alagoas, Paraíba, Mato Grosso, Pará, Tocantins ou Sergipe) e lê dali os dados da sua nota.</p>
+  <ul>
+    <li>Essa conexão é feita <strong>diretamente entre o seu aparelho e o site da SEFAZ</strong>, sem intermediário nosso.</li>
+    <li>O endereço acessado é o que está no QR Code do <strong>seu próprio cupom</strong>.</li>
+    <li>Ao acessar o site da SEFAZ, você está sujeito às regras e à política de privacidade <strong>daquele órgão</strong>, sobre as quais não temos controle.</li>
+    <li>Em Minas Gerais, Santa Catarina, Rondônia, Mato Grosso do Sul, Mato Grosso, no Distrito Federal, no Piauí, no Espírito Santo, no Maranhão, na Paraíba e no Pará a página exige uma verificação de segurança (captcha), resolvida por você na própria página do órgão. Algumas dessas verificações são serviços de terceiros escolhidos pelo órgão, como o reCAPTCHA (Google), o hCaptcha e o Turnstile (Cloudflare), e seguem a política de privacidade de quem as fornece.</li>
+    <li>Durante a consulta, a página da SEFAZ pode gravar cookies e dados temporários no navegador interno do aplicativo, necessários para a sessão e a verificação de segurança funcionarem. O aplicativo <strong>apaga esses dados ao fim de cada consulta</strong>. O armazenamento e o cache das páginas são apagados também sempre que o aplicativo é aberto.</li>
+  </ul>
+  <p class="note"><strong>As consultas aos portais do Maranhão e do Ceará, e as das notas antigas de Goiás, não são cifradas.</strong> Os portais do Maranhão e do Ceará só atendem em <code>http://</code> e não oferecem endereço seguro para a consulta pública. Em Goiás, as notas antigas trazem no QR Code o endereço <code>http://nfe.sefaz.go.gov.br</code>, que só as abre sem cifra; as notas novas de Goiás usam <code>https://</code>. Nesses casos, quem estiver no caminho da rede pode ver o endereço consultado, a chave da nota e o cupom que volta. Vale só para o Maranhão, o Ceará e as notas antigas de Goiás: em todos os outros casos a consulta é feita em <code>https://</code>.</p>
+</section>
+
+<section aria-labelledby="s7">
+  <h2 id="s7">7. Backup e troca de aparelho</h2>
+  <p>O aplicativo participa do sistema de <strong>backup do Android</strong>. Isso significa que suas listas e seus cupons podem ser copiados para a <strong>sua</strong> conta Google, de forma cifrada, e restaurados quando você trocar de aparelho ou reinstalar o aplicativo.</p>
+  <ul>
+    <li>O backup é um recurso <strong>do Android e da sua conta</strong>, não nosso: <strong>não temos acesso</strong> a esses dados em momento algum.</li>
+    <li>Ele existe para você não perder o histórico de compras, que é o que sustenta a comparação de preços.</li>
+    <li>Você pode desligar o backup a qualquer momento nas configurações do Android (Sistema → Backup), ou na configuração de backup da sua conta Google.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="s8">
+  <h2 id="s8">8. Compartilhamento de informações</h2>
+  <p>O aplicativo <strong>não compartilha</strong> suas listas nem seus cupons com terceiros. Fora as informações que os componentes do Google enviam (seções <a href="#s4">4</a> e <a href="#s5">5</a>), só existem três situações em que informações saem do aparelho, e as três <strong>partem sempre de uma ação sua</strong>:</p>
+  <ul>
+    <li><strong>Enviar a lista pelo WhatsApp</strong>: quando você toca em compartilhar, o texto da lista é entregue ao WhatsApp, que passa a tratá-lo segundo a política dele.</li>
+    <li><strong>Compartilhar o histórico de preço de um produto</strong>: quando você toca no ícone de compartilhar na tela de um produto, o aplicativo monta, no próprio aparelho, um PDF com o nome do produto, o nome e a cidade da loja e as datas, quantidades e preços das compras dele, e o entrega ao aplicativo que <strong>você escolher</strong> na janela de compartilhar do sistema (WhatsApp, e-mail, Drive…), que passa a tratá-lo segundo a política dele. O PDF não leva chave de acesso da nota, forma de pagamento, dado de cartão nem nome de operador de caixa.</li>
+    <li><strong>Salvar backup</strong>: grava suas compras e suas listas de compras num arquivo <code>.json</code>, no lugar do aparelho que <strong>você escolher</strong> na caixa do próprio sistema, para guardar ou levar para onde quiser. O aplicativo não envia esse conteúdo a lugar nenhum: se o destino escolhido for uma pasta sincronizada (Google Drive, por exemplo), quem faz o envio é aquele serviço, segundo a política dele.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="s9">
+  <h2 id="s9">9. Por quanto tempo os dados ficam guardados</h2>
+  <p>Pelo tempo que você quiser. Como tudo está no seu aparelho, você controla a remoção:</p>
+  <ul>
+    <li>apagar uma lista, ou uma compra, dentro do aplicativo;</li>
+    <li>apagar todas as compras pelo menu de “Minhas compras”;</li>
+    <li>desinstalar o aplicativo, o que remove os dados locais (uma cópia pode permanecer no backup da sua conta Google até que você a remova por lá).</li>
+  </ul>
+  <p>As informações que os componentes do Google recebem (seções <a href="#s4">4</a> e <a href="#s5">5</a>) não são guardadas pelo aplicativo. O tempo que o Google as mantém segue a política do Google.</p>
+</section>
+
+<section aria-labelledby="s10">
+  <h2 id="s10">10. Seus direitos (LGPD)</h2>
+  <p>A Lei Geral de Proteção de Dados (Lei 13.709/2018) garante a você direitos de acesso, correção, exclusão e portabilidade dos seus dados.</p>
+  <p>Como <strong>não temos posse de nenhum dado seu</strong>, esses direitos são exercidos diretamente no aplicativo, sem depender de nós:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th scope="col">Direito</th><th scope="col">Como exercer</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Acessar</th><td>Todos os dados estão visíveis nas telas do aplicativo</td></tr>
+        <tr><th scope="row">Corrigir</th><td>Editar itens e listas dentro do aplicativo</td></tr>
+        <tr><th scope="row">Excluir</th><td>Apagar listas e compras, ou desinstalar o aplicativo</td></tr>
+        <tr><th scope="row">Portabilidade</th><td>“Salvar backup”, no menu de “Minhas compras”, entrega tudo (compras e listas) num arquivo JSON</td></tr>
+        <tr><th scope="row">Opor-se à publicidade personalizada</th><td>Excluir ou redefinir o identificador de publicidade nas configurações do Android (<a href="#s5">seção 5</a>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Sobre as informações recebidas pelo Google (seções <a href="#s4">4</a> e <a href="#s5">5</a>), você também pode exercer seus direitos diretamente junto ao Google. E pode, a qualquer momento, apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+  <p><strong>Base legal:</strong> o tratamento local se apoia na execução da funcionalidade solicitada por você e no legítimo interesse de fazer o aplicativo funcionar (art. 7º da LGPD). A exibição e a medição de anúncios, e o diagnóstico do componente de leitura do QR Code, se apoiam no legítimo interesse de manter o aplicativo gratuito e funcionando, com os controles da <a href="#s5">seção 5</a> ao seu alcance. Não há tratamento para nenhuma outra finalidade.</p>
+  <p>Dúvidas sobre privacidade: <a href="mailto:remixxdev@gmail.com">remixxdev@gmail.com</a>.</p>
+</section>
+
+<section aria-labelledby="s11">
+  <h2 id="s11">11. Crianças</h2>
+  <p>O aplicativo não é dirigido a crianças e não coleta intencionalmente dados de menores. Não há cadastro, e nenhuma informação pessoal é solicitada.</p>
+</section>
+
+<section aria-labelledby="s12">
+  <h2 id="s12">12. Alterações nesta política</h2>
+  <p>Mudanças relevantes serão publicadas nesta mesma página, com atualização da data no topo. Se o aplicativo passar a tratar dados de forma diferente, a política será atualizada <strong>antes</strong> de a mudança entrar em vigor.</p>
+</section>
+
+<section aria-labelledby="s13">
+  <h2 id="s13">13. Onde esta política está publicada</h2>
+  <p>Esta política fica publicada em <a href="https://www.minhanotinha.com.br/privacidade">https://www.minhanotinha.com.br/privacidade</a> e também pode ser aberta dentro do aplicativo, no menu de “Minhas compras”.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Minha Notinha · <a href="mailto:remixxdev@gmail.com">remixxdev@gmail.com</a></p>
+</footer>
+
+</div>
+</body>
+</html>
