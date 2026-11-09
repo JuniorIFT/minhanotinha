@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minha Notinha · Variação de preços pelo cupom fiscal</title>
+<meta name="description" content="Leia o QR Code do cupom fiscal e veja quanto cada produto subiu ou caiu desde a última compra. O app também confere se algum item foi cobrado mais de uma vez.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0B7A5A">
+<link rel="canonical" href="https://www.minhanotinha.com.br/">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Minha Notinha">
+<meta property="og:description" content="Acompanhe a variação de preços pelo cupom fiscal e confira itens cobrados em duplicidade.">
+<meta property="og:url" content="https://www.minhanotinha.com.br/">
+<meta property="og:image" content="https://www.minhanotinha.com.br/icon.png">
+<style>
+  :root {
+    --bg: #F1F5F3;
+    --surface: #FFFFFF;
+    --text: #11211B;
+    --muted: #5C6B64;
+    --line: #DCE4E0;
+    --accent: #0B7A5A;
+    --accent-strong: #096249;
+    --accent-soft: #E7F4EF;
+    --on-accent: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0D1613;
+      --surface: #14201B;
+      --text: #E2EBE7;
+      --muted: #9AABA3;
+      --line: #263630;
+      --accent: #45C79A;
+      --accent-strong: #5FD6AC;
+      --accent-soft: #15302A;
+      --on-accent: #06251B;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 16px 40px;
+  }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+
+  /* Topo */
+  .hero { text-align: center; margin-bottom: 36px; }
+
+  .hero img {
+    width: 112px;
+    height: 112px;
+    display: block;
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 6px 16px rgba(11, 122, 90, .22));
+  }
+
+  h1 {
+    font-size: clamp(32px, 7vw, 44px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    letter-spacing: -.015em;
+  }
+
+  .tagline {
+    font-size: clamp(18px, 3.6vw, 21px);
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.5;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--on-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    transition: background-color .15s ease, transform .15s ease;
+  }
+  .cta:hover { background: var(--accent-strong); }
+  .cta:active { transform: translateY(1px); }
+  .cta:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .cta svg { width: 18px; height: 18px; flex: none; }
+
+  .cta-note { color: var(--muted); font-size: 14.5px; margin: 12px 0 0; }
+
+  /* O que o app faz */
+  .about {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 22px;
+    margin-bottom: 14px;
+  }
+  .about h2 { font-size: 20px; line-height: 1.3; margin: 0 0 8px; }
+  .about p { margin: 0; }
+
+  /* Recursos */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 20px;
+  }
+
+  .card .ico {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    margin-bottom: 14px;
+  }
+  .card .ico svg { width: 24px; height: 24px; }
+
+  .card h2 { font-size: 18px; line-height: 1.3; margin: 0 0 6px; }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+
+  /* Privacidade */
+  .privacy {
+    background: var(--accent-soft);
+    border-radius: 16px;
+    padding: 24px 22px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .privacy .ico {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+  }
+  .privacy .ico svg { width: 24px; height: 24px; }
+  .privacy h2 { font-size: 18px; margin: 0 0 6px; line-height: 1.3; }
+  .privacy p { margin: 0; font-size: 16px; line-height: 1.55; }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 15px;
+    text-align: center;
+  }
+  footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 22px;
+    margin-bottom: 8px;
+  }
+  footer p { margin: 0; }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .page { padding-top: 36px; }
+    .hero img { width: 96px; height: 96px; }
+    .features { grid-template-columns: 1fr; }
+    .privacy { flex-direction: column; gap: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <img src="icon.png" width="112" height="112" alt="Ícone do Minha Notinha">
+  <h1>Minha Notinha</h1>
+  <p class="tagline">Acompanhe a variação de preços do seu mercado pelo cupom fiscal e descubra se algum item foi cobrado duas vezes.</p>
+  <a class="cta" href="https://play.google.com/store/apps/details?id=br.com.minhanotinha.listacompras" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 3.8v16.4a1 1 0 0 0 1.5.86l13.7-8.2a1 1 0 0 0 0-1.72L7.5 2.94A1 1 0 0 0 6 3.8Z"/></svg>
+    Baixar no Google Play
+  </a>
+  <p class="cta-note">Gratuito, para Android.</p>
+</header>
+
+<main>
+
+<section class="about" aria-labelledby="o-que-faz">
+  <h2 id="o-que-faz">O que o app faz</h2>
+  <p>Você aponta a câmera para o QR Code do cupom fiscal. O Minha Notinha busca a nota no portal da SEFAZ do seu estado e guarda a loja, os itens e os preços. A cada nova compra no mesmo mercado, ele mostra o que subiu, o que caiu e quanto. E, com um toque, confere se algum produto foi cobrado mais de uma vez.</p>
+</section>
+
+<div class="features">
+  <section class="card">
+    <div class="ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v15a1 1 0 0 0 1 1h15"/><path d="m8 15 4-4 3 3 5-6"/></svg>
+    </div>
+    <h2>Variação de preços</h2>
+    <p>Veja quanto cada produto subiu ou caiu desde a última compra, em reais e em porcentagem. Cada produto tem gráfico, menor, maior e preço médio, e cada loja mostra a variação média da sua compra.</p>
+  </section>
+
+  <section class="card">
+    <div class="ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+    </div>
+    <h2>Conferência de itens repetidos</h2>
+    <p>O caixa passou o mesmo produto duas vezes? Digitou 8 em vez de 2? O app pinta da mesma cor as linhas repetidas e as quantidades que merecem um segundo olhar.</p>
+  </section>
+
+  <section class="card">
+    <div class="ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 8h3v3H8zM13 13h3v3h-3zM13 8h3M8 13v3h3"/></svg>
+    </div>
+    <h2>Leitura do cupom fiscal</h2>
+    <p>Aponte a câmera para o QR Code da NFC-e e a nota é lida na hora. Funciona com os portais da SEFAZ de 22 estados e do Distrito Federal.</p>
+  </section>
+
+  <section class="card">
+    <div class="ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1 1 2-2M3.5 12l1 1 2-2M3.5 18l1 1 2-2"/></svg>
+    </div>
+    <h2>Comprar de novo</h2>
+    <p>Transforme uma compra antiga em lista de compras com um toque, marque os itens no mercado e envie a lista pelo WhatsApp.</p>
+  </section>
+</div>
+
+<section class="privacy">
+  <div class="ico" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+  </div>
+  <div>
+    <h2>Seus dados ficam no seu celular</h2>
+    <p>Sem cadastro, sem login e sem servidor: suas notas, seus preços e suas listas são gravados só no aparelho. Os detalhes estão na <a href="/privacidade">política de privacidade</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <nav aria-label="Rodapé">
+    <a href="/privacidade">Política de privacidade</a>
+    <a href="mailto:remixxdev@gmail.com">Contato: remixxdev@gmail.com</a>
+  </nav>
+  <p>Minha Notinha</p>
+</footer>
+
+</div>
+</body>
+</html>
